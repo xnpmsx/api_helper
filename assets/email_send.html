@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Email via EmailJS</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <script>
+        // EmailJS configuration
+        var serviceId = 'service_vqdh2lp';
+        var templateId = 'template_twx1srj';
+        var userId = 'hvedMSt7onx-3sVtj';
+
+        // Function to receive data from Flutter
+        function sendDataToJS(detail, date) {
+            var data = {
+                service_id: serviceId,
+                template_id: templateId,
+                user_id: userId,
+                template_params: {
+                    'time': date,  // Use the date passed from Flutter
+                    'message': detail,  // Use the detail passed from Flutter
+                    'to_email': 'helperapp.noti@gmail.com'  // Recipient email
+                }
+            };
+
+            // Send the email via AJAX (EmailJS API)
+            $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: 'application/json'
+            }).done(function() {
+                alert('Your mail is sent!');
+            }).fail(function(error) {
+                alert('Oops... ' + JSON.stringify(error));
+            });
+        }
+    </script>
+
+</body>
+</html>
