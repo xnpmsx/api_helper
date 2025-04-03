@@ -57,7 +57,7 @@ if (!isset($_SESSION['csrf_token'])) {
 
 <!-- Main Content -->
 <div class="main-content">
-    <h2>Verify Care Giver</h2>
+    <h2>Verify Care Giverrr</h2>
     <hr>
     
     <div class="list-group">
