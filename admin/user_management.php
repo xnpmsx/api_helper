@@ -139,7 +139,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($row['profile_phone']); ?></td>
                             <td><?php echo htmlspecialchars($row['profile_detail']); ?></td>
                         <?php endif; ?>
-                        <td><img src="http://192.168.1.42/helper/api/<?php echo htmlspecialchars($type == 1 ? $row['giver_img'] : $row['profile_image']); ?>" alt="Image"></td>
+                        <td><img src="https://helper-admins.onrender.com/<?php echo htmlspecialchars($type == 1 ? $row['giver_img'] : $row['profile_image']); ?>" alt="Image"></td>
                         <td class="actions">
                             <a href="<?php echo $type == 1 ? 'giver_update.php' : 'receiver_update.php'; ?>?user_id=<?php echo $row['user_id']; ?>">
                                 <button class="update"><i class="fa fa-edit"></i></button>
