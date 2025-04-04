@@ -37,7 +37,7 @@ WHERE report_id = ?";
     <p><strong>Date:</strong> <?php echo htmlspecialchars($report['report_date']); ?></p>
     <p><strong>Details:</strong> <?php echo htmlspecialchars($report['report_detail']); ?></p>
     <?php if (!empty($report['report_img'])): ?>
-        <img src="http://192.168.1.42/helper/api/<?php echo htmlspecialchars($report['report_img']); ?>" alt="Report Image" class="img-fluid">
+        <img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($report['report_img']); ?>" alt="Report Image" class="img-fluid">
     <?php endif; ?>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

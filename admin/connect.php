@@ -1,6 +1,6 @@
 <?php
 // connect.php
-
+$sever = 'https://pmc-helper.onrender.com';
 // กำหนดค่าการเชื่อมต่อ
 $host = 'bzk85108cpoxi360fu7u-mysql.services.clever-cloud.com'; // ชื่อโฮสต์ (เช่น localhost หรือ IP)
 $dbname = 'bzk85108cpoxi360fu7u'; // ชื่อฐานข้อมูล

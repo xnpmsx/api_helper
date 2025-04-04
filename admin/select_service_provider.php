@@ -51,7 +51,7 @@ $providers = $stmt->fetchAll(PDO::FETCH_ASSOC);  // ดึงข้อมูล�
         <?php foreach ($providers as $provider): ?>
             <div class="col-md-4">
                 <div class="card">
-                    <img src="http://192.168.1.42/helper/api/<?php echo htmlspecialchars($provider['giver_img']); ?>" alt="Provider Image" class="card-img-top">
+                    <img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($provider['giver_img']); ?>" alt="Provider Image" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($provider['giver_name']); ?></h5>
                         <p class="card-text"><strong>Specialities:</strong> <?php echo htmlspecialchars($provider['Specialities']); ?></p>

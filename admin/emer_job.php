@@ -116,7 +116,7 @@ $jobs = $stmt->fetchAll(PDO::FETCH_ASSOC);  // ดึงข้อมูลทั
             echo '
             <div class="col-md-4">
                 <div class="job-card d-flex">
-                    <img src="http://192.168.1.42/helper/api/' . htmlspecialchars($job['profile_image']) . '" alt="Profile Image">
+                    <img src="<?php echo htmlspecialchars($sever); ?>/' . htmlspecialchars($job['profile_image']) . '" alt="Profile Image">
                     <div>
                         <h4>' . htmlspecialchars($job['profile_name']) . '</h4>
                         <p><strong>Age:</strong> ' . $age . ' years</p>

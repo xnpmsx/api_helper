@@ -66,12 +66,12 @@ if (isset($_GET['giver_id'])) {
             <p class="card-text"><strong>Item 1:</strong> <?php echo htmlspecialchars($caregiver['item1']); ?></p>
             <p class="card-text"><strong>Item 2:</strong> <?php echo htmlspecialchars($caregiver['item2']); ?></p>
             <p class="card-text"><strong>Item 3:</strong> <?php echo htmlspecialchars($caregiver['item3']); ?></p>
-            <p class="card-text"><strong>Identity Image:</strong> <img src="http://192.168.1.42/helper/api/<?php echo htmlspecialchars($caregiver['id_img']); ?>" alt="ID Image" class="img-fluid" style="max-width: 200px;"></p>
+            <p class="card-text"><strong>Identity Image:</strong> <img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($caregiver['id_img']); ?>" alt="ID Image" class="img-fluid" style="max-width: 200px;"></p>
             
-            <p class="card-text"><strong>Certificate:</strong> <img src="http://192.168.1.42/helper/api/<?php echo htmlspecialchars($caregiver['certificate']); ?>" alt="Certificate" class="img-fluid" style="max-width: 200px;"></p>
-                <p class="card-text"><strong>Profile Image:</strong> <img src="http://192.168.1.42/helper/api/<?php echo htmlspecialchars($caregiver['criminal_record']); ?>" alt="Caregiver Image" class="img-fluid" style="max-width: 200px;"></p>
+            <p class="card-text"><strong>Certificate:</strong> <img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($caregiver['certificate']); ?>" alt="Certificate" class="img-fluid" style="max-width: 200px;"></p>
+                <p class="card-text"><strong>Profile Image:</strong> <img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($caregiver['criminal_record']); ?>" alt="Caregiver Image" class="img-fluid" style="max-width: 200px;"></p>
 
-            <p class="card-text"><strong>Profile Image:</strong> <img src="http://192.168.1.42/helper/api/<?php echo htmlspecialchars($caregiver['giver_img']); ?>" alt="Caregiver Image" class="img-fluid" style="max-width: 200px;"></p>
+            <p class="card-text"><strong>Profile Image:</strong> <img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($caregiver['giver_img']); ?>" alt="Caregiver Image" class="img-fluid" style="max-width: 200px;"></p>
         </div>
     </div>
 
