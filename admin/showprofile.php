@@ -1,12 +1,8 @@
 <?php
 session_start();
 include('connect.php');
-include('sidebar.php');
-if (!isset($_SESSION['admin_id'])) {
-    header("Location: login.php"); // ถ้าไม่ได้ล็อกอินให้ไปที่หน้า login
-    exit();
-}
 
+include('sidebar.php');
 
 // Check if 'giver_id' is passed in the URL
 if (isset($_GET['giver_id'])) {
