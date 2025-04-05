@@ -2,7 +2,7 @@
 // เชื่อมต่อกับฐานข้อมูล
 include('connect.php');
 include('sidebar.php');
-session_start();
+
 
 // ดึงข้อมูลจากฐานข้อมูล
 $sql = "SELECT gp.giver_id, gp.giver_name, gp.Specialities, gp.giver_img,
