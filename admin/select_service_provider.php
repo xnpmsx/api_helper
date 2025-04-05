@@ -4,10 +4,6 @@ include('connect.php');
 include('sidebar.php');
 session_start();
 
-if (!isset($_SESSION['admin_id'])) {
-    header("Location: login.php"); // ถ้าไม่ได้ล็อกอินให้ไปที่หน้า login
-    exit();
-}
 // ดึงข้อมูลจากฐานข้อมูล
 $sql = "SELECT gp.giver_id, gp.giver_name, gp.Specialities, gp.giver_img,
             GROUP_CONCAT(DISTINCT a.addon_name ORDER BY a.addon_name SEPARATOR ', ') AS addon_names
