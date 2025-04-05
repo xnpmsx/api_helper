@@ -1,69 +1,73 @@
 /* กำหนดสไตล์พื้นฐาน */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #adc0a9;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    display: flex; /* ใช้ flexbox สำหรับจัดตำแหน่ง */
+    justify-content: center; /* จัดตำแหน่งแนวนอน */
+    align-items: center; /* จัดตำแหน่งแนวตั้ง */
+    height: 100vh; /* ให้ความสูงเต็มหน้าจอ */
+    font-size: 21px; /* ปรับจาก 14px x1.5 */
 }
 
 /* กล่องของฟอร์ม */
 form {
     background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    padding: 30px 40px; /* บน–ล่าง 20px x1.5 = 30px, ซ้าย–ขวา 20px x2 = 40px */
+    border-radius: 15px 20px; /* บน–ล่าง 10px x1.5 = 15px, ซ้าย–ขวา 10px x2 = 20px */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    width: 600px; /* 300px x2 */
+    max-width: 700px;
     text-align: center;
 }
 
 /* สไตล์หัวข้อ */
 h2 {
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* 20px x1.5 */
+    font-size: 30px; /* เพิ่มขนาดเล็กน้อย */
 }
 
 /* ช่องกรอกข้อมูล */
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 15px 20px; /* บน–ล่าง 10px x1.5, ซ้าย–ขวา 10px x2 */
+    margin: 15px 0; /* บน–ล่าง 10px x1.5 */
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 7.5px 10px; /* บน–ล่าง x1.5, ซ้าย–ขวา x2 */
     box-sizing: border-box;
+    font-size: 21px;
 }
 
 /* ปุ่ม login */
 button {
     width: 100%;
-    padding: 10px;
+    padding: 15px 20px;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 7.5px 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 21px;
     transition: background-color 0.3s ease;
 }
 
-/* เปลี่ยนสีปุ่มเมื่อ hover */
 button:hover {
     background-color: #45a049;
 }
 
 /* ข้อความผิดพลาด */
-div {
+div.error-message {
     color: red;
-    font-size: 14px;
-    margin-bottom: 15px;
+    font-size: 21px;
+    margin-bottom: 22.5px; /* 15px x1.5 */
 }
 
-/* ปรับความกว้างของฟอร์ม */
-form {
-    width: 100%;
-    max-width: 350px;
+/* โลโก้ */
+.logo {
+    width: 200px; /* 100px x2 */
+    height: auto;
+    margin-bottom: 22.5px;
 }

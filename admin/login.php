@@ -35,39 +35,69 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 exit();
             } else {
                 $_SESSION['login_attempts']++;
-                $error_message = "❌ รหัสผ่านไม่ถูกต้อง!";
+                $error_message = "❌ Username หรือ รหัสผ่านไม่ถูกต้อง!";
             }
         } else {
             $_SESSION['login_attempts']++;
-            $error_message = "❌ ไม่พบ username นี้ในระบบ!";
+            $error_message = "❌ Username หรือ รหัสผ่านไม่ถูกต้อง!";
         }
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="css/login.css">
+    <style>
+        .login-box {
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+        }
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 10px 0;
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+        }
+    </style>
 </head>
 <body>
+
+<div class="login-box">
+    <!-- แสดงโลโก้ด้านบน -->
+    <img src="assets/logo.png" alt="Logo" class="logo">
+
     <?php if (isset($error_message)): ?>
-        <div style="color: red;"><?php echo htmlspecialchars($error_message, ENT_QUOTES, 'UTF-8'); ?></div>
+        <div class="error-message"><?php echo htmlspecialchars($error_message, ENT_QUOTES, 'UTF-8'); ?></div>
     <?php endif; ?>
 
     <form method="POST" action="login.php">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
-        <br>
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
-        <br>
 
         <button type="submit">Login</button>
     </form>
+</div>
+
 </body>
 </html>
