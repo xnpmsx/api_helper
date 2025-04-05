@@ -24,6 +24,7 @@ WHERE report_id = ?";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/report_detail.css">
     <title>Report Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/report_detail.css">
@@ -37,7 +38,7 @@ WHERE report_id = ?";
     <p><strong>Date:</strong> <?php echo htmlspecialchars($report['report_date']); ?></p>
     <p><strong>Details:</strong> <?php echo htmlspecialchars($report['report_detail']); ?></p>
     <?php if (!empty($report['report_img'])): ?>
-        <img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($report['report_img']); ?>" alt="Report Image" class="img-fluid">
+        <img src="<?php echo htmlspecialchars($server); ?>/<?php echo htmlspecialchars($report['report_img']); ?>" alt="Report Image" class="img-fluid">
     <?php endif; ?>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

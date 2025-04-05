@@ -41,6 +41,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/user_management.css">
     <title>User Management</title>
     <script>
         function confirmDelete(userId, type) {
@@ -50,52 +51,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .main-content {
-            margin-left: 270px;
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 { text-align: center; }
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .tabs a {
-            padding: 10px 20px;
-            text-decoration: none;
-            color: white;
-            background: #007BFF;
-            border-radius: 5px;
-            margin: 0 5px;
-        }
-        .tabs a.active { background: #0056b3; }
-        form { text-align: center; margin-bottom: 20px; }
-        input[type='text'] { padding: 5px; width: 200px; }
-        button { padding: 5px 10px; background: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        table { width: 100%; border-collapse: collapse; background: white; }
-        th, td { border: 1px solid black; padding: 10px; text-align: left; }
-        th { background-color: #007BFF; color: white; }
-        img { width: 50px; height: 50px; border-radius: 50%; display: block; margin: auto; }
-        .actions button { margin: 5px; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer; }
-        .update { background: #28a745; color: white; }
-        .delete { background: #dc3545; color: white; }
-        .actions .fa { font-size: 18px; }
-    </style>
+    
 </head>
 <body>
 
@@ -139,7 +95,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($row['profile_phone']); ?></td>
                             <td><?php echo htmlspecialchars($row['profile_detail']); ?></td>
                         <?php endif; ?>
-                        <td><img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($type == 1 ? $row['giver_img'] : $row['profile_image']); ?>" alt="Image"></td>
+                        <td><img src="<?php echo htmlspecialchars($server); ?>/<?php echo htmlspecialchars($type == 1 ? $row['giver_img'] : $row['profile_image']); ?>" alt="Image"></td>
                         <td class="actions">
                             <a href="<?php echo $type == 1 ? 'giver_update.php' : 'receiver_update.php'; ?>?user_id=<?php echo $row['user_id']; ?>">
                                 <button class="update"><i class="fa fa-edit"></i></button>

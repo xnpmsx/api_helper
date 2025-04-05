@@ -34,67 +34,11 @@ $jobs = $stmt->fetchAll(PDO::FETCH_ASSOC);  // ดึงข้อมูลทั
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/emerjob.css">
     <title>Job Details</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .sidebar {
-            width: 250px;
-            height: 100vh;
-            position: fixed;
-            background: #e0e0e0;
-            padding: 20px;
-        }
-        .sidebar a {
-            display: block;
-            padding: 10px;
-            color: #333;
-            text-decoration: none;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        .sidebar a:hover {
-            background: #ccc;
-        }
-        .sidebar a.active {
-            background: #bbb;
-        }
-        .main-content {
-            margin-left: 270px;
-            padding: 20px;
-        }
-        .job-card {
-            background-color: #fff;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .job-card img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-right: 20px;
-        }
-        .job-card h4 {
-            margin: 0;
-        }
-        .job-card button {
-            margin-top: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .job-card button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    
 </head>
 <body>
 
@@ -116,7 +60,7 @@ $jobs = $stmt->fetchAll(PDO::FETCH_ASSOC);  // ดึงข้อมูลทั
             echo '
             <div class="col-md-4">
                 <div class="job-card d-flex">
-                    <img src="<?php echo htmlspecialchars($sever); ?>/' . htmlspecialchars($job['profile_image']) . '" alt="Profile Image">
+                    <img src="<?php echo htmlspecialchars($server); ?>/' . htmlspecialchars($job['profile_image']) . '" alt="Profile Image">
                     <div>
                         <h4>' . htmlspecialchars($job['profile_name']) . '</h4>
                         <p><strong>Age:</strong> ' . $age . ' years</p>

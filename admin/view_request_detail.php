@@ -98,7 +98,7 @@ if (isset($_GET['request_id'])) {
     <div class="mb-3">
         <label><strong>รูปภาพผู้ให้บริการ:</strong></label>
         <?php if ($report['giver_img']): ?>
-            <img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($report['giver_img']); ?>" alt="giver image" width="200">
+            <img src="<?php echo htmlspecialchars($server); ?>/<?php echo htmlspecialchars($report['giver_img']); ?>" alt="giver image" width="200">
         <?php else: ?>
             <p>ไม่มีรูปภาพ</p>
         <?php endif; ?>

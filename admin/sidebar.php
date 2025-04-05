@@ -14,8 +14,7 @@
 </head>
 <body>
 <div class="sidebar">
-    <img src="../assets/picture/icon.png" alt="Care System Logo" width="30" height="30" style="vertical-align: middle; margin-right: 10px;">
-    Care System
+    <img src="assets/logo.png" alt="Care System Logo" width="30" height="30" style="vertical-align: middle; margin-right: 10px;">
     <a href="dashboard.php" class="<?php echo ($currentPage == 'dashboard') ? 'active' : ''; ?>"><i class="fas fa-user-check"></i> ยืนยันผู้ให้บริการ</a>
     <a href="user_management.php" class="<?php echo ($currentPage == 'user_management') ? 'active' : ''; ?>"><i class="fas fa-users"></i> จัดการบัญชีผู้ใช้</a>
     <a href="job_management.php" class="<?php echo ($currentPage == 'job_management') ? 'active' : ''; ?>"><i class="fas fa-briefcase"></i> จัดการงาน</a>

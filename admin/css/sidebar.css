@@ -52,3 +52,9 @@ body {
     margin-left: 270px;
     padding: 20px;
 }
+.sidebar img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+}

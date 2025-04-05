@@ -1,0 +1,140 @@
+/* user_management.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f6fa;
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    margin-left: 220px; /* if you have a sidebar */
+    padding: 20px;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #2f3640;
+}
+
+.tabs {
+    margin-bottom: 20px;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #2f3640;
+    padding: 10px 20px;
+    background-color: #dcdde1;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.tabs a.active,
+.tabs a:hover {
+    background-color: #44bd32;
+    color: white;
+}
+
+form {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 200px;
+}
+
+button {
+    padding: 8px 14px;
+    background-color: #273c75;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #40739e;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+}
+
+th {
+    background-color: #f1f2f6;
+    color: #2f3640;
+}
+
+img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.actions .update,
+.actions .delete {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+}
+
+.actions .update {
+    background-color: #00a8ff;
+}
+
+.actions .update:hover {
+    background-color: #0097e6;
+}
+
+.actions .delete {
+    background-color: #e84118;
+}
+
+.actions .delete:hover {
+    background-color: #c23616;
+}
+img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    display: block;
+    margin: 0 auto;
+}

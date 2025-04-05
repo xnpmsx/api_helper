@@ -33,25 +33,21 @@ $providers = $stmt->fetchAll(PDO::FETCH_ASSOC);  // ดึงข้อมูล�
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/select_provider.css">
     <title>Service Providers</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-    .card-img-top {
-        width: 100%; /* กำหนดความกว้างของรูปภาพให้เต็ม */
-        height: 200px; /* กำหนดความสูงของรูปภาพ */
-        object-fit: contain; /* ทำให้รูปภาพไม่ยืดหรือบีบอัดเกินไป */
-    }
+    
 </style>
 </head>
 <body>
-
+<div class="main-content">
 <div class="container">
     <h2>Available Service Providers</h2>
     <div class="row">
         <?php foreach ($providers as $provider): ?>
             <div class="col-md-4">
                 <div class="card">
-                    <img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($provider['giver_img']); ?>" alt="Provider Image" class="card-img-top">
+                    <img src="<?php echo htmlspecialchars($server); ?>/<?php echo htmlspecialchars($provider['giver_img']); ?>" alt="Provider Image" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($provider['giver_name']); ?></h5>
                         <p class="card-text"><strong>Specialities:</strong> <?php echo htmlspecialchars($provider['Specialities']); ?></p>
@@ -67,7 +63,7 @@ $providers = $stmt->fetchAll(PDO::FETCH_ASSOC);  // ดึงข้อมูล�
         <?php endforeach; ?>
     </div>
 </div>
-
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

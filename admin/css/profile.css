@@ -1,0 +1,81 @@
+/* ตั้งค่าพื้นฐาน */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background: white;
+}
+
+.img-fluid {
+    width: 100%;
+    max-width: 297mm;
+    height: 210mm; 
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin: 10px auto;
+}
+/* สไตล์สำหรับหัวข้อ */
+h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    
+}
+
+/* Card สำหรับโปรไฟล์ */
+.card {
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    
+    margin-top: 20px;
+    
+}
+
+/* ชื่อผู้ให้บริการ */
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* จัดรูปแบบข้อความ */
+.card-text {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.card-text strong {
+    color: #333;
+}
+
+
+
+
+/* ปุ่มกลับไป Dashboard */
+.btn-primary {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+

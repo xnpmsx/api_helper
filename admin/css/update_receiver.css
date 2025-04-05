@@ -1,0 +1,74 @@
+/* ตั้งค่าพื้นฐานของหน้าเว็บ */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container ของฟอร์ม */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+/* หัวข้อ */
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Style สำหรับ Label */
+label {
+    display: block;
+    font-weight: 600;
+    margin: 12px 0 6px;
+    color: #555;
+    text-align: left;
+}
+
+/* Input Field */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* เพิ่มเงาเมื่อคลิกที่ input */
+input:focus {
+    border-color: #007BFF;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+/* ปุ่มกด */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+

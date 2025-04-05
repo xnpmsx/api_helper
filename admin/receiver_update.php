@@ -46,16 +46,9 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/update_receiver.css">
     <title>Update Receiver</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 20px; }
-        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
-        h2 { text-align: center; }
-        label { display: block; margin-top: 10px; }
-        input { width: 100%; padding: 8px; margin-top: 5px; }
-        button { margin-top: 20px; padding: 10px; background: #007BFF; color: white; border: none; width: 100%; cursor: pointer; }
-        button:hover { background: #0056b3; }
-    </style>
+    
 </head>
 <body>
     <div class="container">

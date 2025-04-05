@@ -1,11 +1,13 @@
 <?php
-include('connect.php'); // Include database connection
 session_start();
-
+include('connect.php');
+include('sidebar.php');
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php"); // ถ้าไม่ได้ล็อกอินให้ไปที่หน้า login
     exit();
 }
+
+
 // Check if 'giver_id' is passed in the URL
 if (isset($_GET['giver_id'])) {
     $giver_id = $_GET['giver_id'];
@@ -46,12 +48,13 @@ if (isset($_GET['giver_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/profile.css">
     <title>Caregiver Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-
-<div class="container mt-4">
+<>
+<div class="main-content">
+<div class="container ">
     <h2>Caregiver Profile</h2>
     <hr>
 
@@ -66,17 +69,18 @@ if (isset($_GET['giver_id'])) {
             <p class="card-text"><strong>Item 1:</strong> <?php echo htmlspecialchars($caregiver['item1']); ?></p>
             <p class="card-text"><strong>Item 2:</strong> <?php echo htmlspecialchars($caregiver['item2']); ?></p>
             <p class="card-text"><strong>Item 3:</strong> <?php echo htmlspecialchars($caregiver['item3']); ?></p>
-            <p class="card-text"><strong>Identity Image:</strong> <img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($caregiver['id_img']); ?>" alt="ID Image" class="img-fluid" style="max-width: 200px;"></p>
+            <p class="card-text"><strong>Identity Image:</strong> <img src="http://192.168.21.242/helper/api/<?php echo htmlspecialchars($caregiver['id_img']); ?>" alt="ID Image" class="img-fluid" style="max-width: 200px;"></p>
             
-            <p class="card-text"><strong>Certificate:</strong> <img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($caregiver['certificate']); ?>" alt="Certificate" class="img-fluid" style="max-width: 200px;"></p>
-                <p class="card-text"><strong>Profile Image:</strong> <img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($caregiver['criminal_record']); ?>" alt="Caregiver Image" class="img-fluid" style="max-width: 200px;"></p>
+            <p class="card-text"><strong>Certificate:</strong> <img src="http://192.168.21.242/helper/api/<?php echo htmlspecialchars($caregiver['certificate']); ?>" alt="Certificate" class="img-fluid" style="max-width: 200px;"></p>
+            <p class="card-text"><strong>Profile Image:</strong> <img src="http://192.168.21.242/helper/api/<?php echo htmlspecialchars($caregiver['criminal_record']); ?>" alt="Caregiver Image" class="img-fluid" style="max-width: 200px;"></p>
 
-            <p class="card-text"><strong>Profile Image:</strong> <img src="<?php echo htmlspecialchars($sever); ?>/<?php echo htmlspecialchars($caregiver['giver_img']); ?>" alt="Caregiver Image" class="img-fluid" style="max-width: 200px;"></p>
+            <p class="card-text"><strong>Profile Image:</strong> <img src="http://192.168.21.242/helper/api/<?php echo htmlspecialchars($caregiver['giver_img']); ?>" alt="Caregiver Image" class="img-fluid" style="max-width: 200px;"></p>
         </div>
     </div>
 
     <br>
     <a href="dashboard.php" class="btn btn-primary">Back to Dashboard</a>
+</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
