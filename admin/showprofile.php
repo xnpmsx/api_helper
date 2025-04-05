@@ -60,22 +60,36 @@ if (isset($_GET['giver_id'])) {
 
     <!-- Display caregiver profile details -->
     <div class="card">
-        <div class="card-body">
-            <h5 class="card-title"><?php echo htmlspecialchars($caregiver['giver_name']); ?></h5>
-            <p class="card-text"><strong>Email:</strong> <?php echo htmlspecialchars($caregiver['email']); ?></p>
-            <p class="card-text"><strong>Phone:</strong> <?php echo htmlspecialchars($caregiver['phone']); ?></p>
-            <p class="card-text"><strong>Birthdate:</strong> <?php echo htmlspecialchars($caregiver['giver_bd']); ?></p>
-            <p class="card-text"><strong>Specialities:</strong> <?php echo htmlspecialchars($caregiver['Specialities']); ?></p>
-            <p class="card-text"><strong>Item 1:</strong> <?php echo htmlspecialchars($caregiver['item1']); ?></p>
-            <p class="card-text"><strong>Item 2:</strong> <?php echo htmlspecialchars($caregiver['item2']); ?></p>
-            <p class="card-text"><strong>Item 3:</strong> <?php echo htmlspecialchars($caregiver['item3']); ?></p>
-            <p class="card-text"><strong>Identity Image:</strong> <img src="http://192.168.21.242/helper/api/<?php echo htmlspecialchars($caregiver['id_img']); ?>" alt="ID Image" class="img-fluid" style="max-width: 200px;"></p>
-            
-            <p class="card-text"><strong>Certificate:</strong> <img src="http://192.168.21.242/helper/api/<?php echo htmlspecialchars($caregiver['certificate']); ?>" alt="Certificate" class="img-fluid" style="max-width: 200px;"></p>
-            <p class="card-text"><strong>Profile Image:</strong> <img src="http://192.168.21.242/helper/api/<?php echo htmlspecialchars($caregiver['criminal_record']); ?>" alt="Caregiver Image" class="img-fluid" style="max-width: 200px;"></p>
+    <div class="card-body">
+    <h5 class="card-title"><?php echo htmlspecialchars($caregiver['giver_name']); ?></h5>
 
-            <p class="card-text"><strong>Profile Image:</strong> <img src="http://192.168.21.242/helper/api/<?php echo htmlspecialchars($caregiver['giver_img']); ?>" alt="Caregiver Image" class="img-fluid" style="max-width: 200px;"></p>
-        </div>
+    <!-- Caregiver Info -->
+    <p class="card-text"><strong>Email:</strong> <?php echo htmlspecialchars($caregiver['email']); ?></p>
+    <p class="card-text"><strong>Phone:</strong> <?php echo htmlspecialchars($caregiver['phone']); ?></p>
+    <p class="card-text"><strong>Birthdate:</strong> <?php echo htmlspecialchars($caregiver['giver_bd']); ?></p>
+    <p class="card-text"><strong>Specialities:</strong> <?php echo htmlspecialchars($caregiver['Specialities']); ?></p>
+    <p class="card-text"><strong>Item 1:</strong> <?php echo htmlspecialchars($caregiver['item1']); ?></p>
+    <p class="card-text"><strong>Item 2:</strong> <?php echo htmlspecialchars($caregiver['item2']); ?></p>
+    <p class="card-text"><strong>Item 3:</strong> <?php echo htmlspecialchars($caregiver['item3']); ?></p>
+
+    <!-- Caregiver Images -->
+    <p class="card-text"><strong>Identity Image:</strong> 
+        <img src="<?php echo htmlspecialchars($server . '/' . $caregiver['id_img']); ?>" alt="ID Image" class="img-fluid" style="max-width: 200px;">
+    </p>
+
+    <p class="card-text"><strong>Certificate:</strong> 
+        <img src="<?php echo htmlspecialchars($server . '/' . $caregiver['certificate']); ?>" alt="Certificate" class="img-fluid" style="max-width: 200px;">
+    </p>
+
+    <p class="card-text"><strong>Criminal Record Image:</strong> 
+        <img src="<?php echo htmlspecialchars($server . '/' . $caregiver['criminal_record']); ?>" alt="Criminal Record Image" class="img-fluid" style="max-width: 200px;">
+    </p>
+
+    <p class="card-text"><strong>Profile Image:</strong> 
+        <img src="<?php echo htmlspecialchars($server . '/' . $caregiver['giver_img']); ?>" alt="Caregiver Image" class="img-fluid" style="max-width: 200px;">
+    </p>
+</div>
+
     </div>
 
     <br>

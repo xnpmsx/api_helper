@@ -53,6 +53,7 @@ $jobs = $stmt->fetchAll(PDO::FETCH_ASSOC);  // ดึงข้อมูลทั
     <!-- Job List -->
     <div class="row">
         <?php
+        
         // ตรวจสอบข้อมูลทั้งหมดที่ได้จากฐานข้อมูล
         foreach ($jobs as $job) {
             // คำนวณอายุจากวันเกิด
@@ -60,7 +61,7 @@ $jobs = $stmt->fetchAll(PDO::FETCH_ASSOC);  // ดึงข้อมูลทั
             echo '
             <div class="col-md-4">
                 <div class="job-card d-flex">
-                    <img src="<?php echo htmlspecialchars($server); ?>/' . htmlspecialchars($job['profile_image']) . '" alt="Profile Image">
+                     <img src="' . htmlspecialchars($server) . '/' . htmlspecialchars($job['profile_image']) . '" alt="Profile Image">
                     <div>
                         <h4>' . htmlspecialchars($job['profile_name']) . '</h4>
                         <p><strong>Age:</strong> ' . $age . ' years</p>
