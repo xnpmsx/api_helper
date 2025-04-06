@@ -1,4 +1,3 @@
-
 <?php
 // giver_detail.php
 header("Content-Type: application/json; charset=UTF-8");
