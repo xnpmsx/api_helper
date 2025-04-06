@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $jobStatuses = [3];
             } 
             elseif ($data['tab'] == 2) {
-                $jobStatuses = [10];
+                $jobStatuses = [10,15];
             }
             elseif ($data['tab'] == 3) {
                 $jobStatuses = [5];
