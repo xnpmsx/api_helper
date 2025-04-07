@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
 
     // Check if all required fields are present
-    if (!empty($data['job_id']) && !empty($data['appoint']) && !empty($data['target']) && !empty($data['date']) && !empty($data['profile_id']) && !empty($data['time'])) {
+    if (!empty($data['job_id']) && !empty($data['appoint']) && !empty($data['target']) && !empty($data['date']) && !empty($data['time'])) {
         try {
             // Start transaction
             $pdo->beginTransaction();
@@ -38,10 +38,6 @@ $formattedDate = $date ? $date->format('Y-m-d') : null;
                 $pdo->commit();
 
                 // Insert into receiver table
-                $stmt2 = $pdo->prepare("INSERT INTO job_profile (profile_id,job_id) VALUES (:profile,:job_id)");
-                $stmt2->bindParam(':job_id', $data['job_id']);
-                $stmt2->bindParam(':profile', $data['profile_id']);
-                $stmt2->execute();
                 echo json_encode(["status" => "success", "message" => "Job updated successfully"]);
             } else {
                 // Rollback if failed
