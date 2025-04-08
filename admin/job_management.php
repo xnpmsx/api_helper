@@ -4,15 +4,18 @@ session_start();
 
 include('connect.php');
 include('sidebar.php');  // รวม Sidebar
+
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php"); // ถ้าไม่ได้ล็อกอินให้ไปที่หน้า login
     exit();
 }
+
 $currentPage = basename($_SERVER['PHP_SELF'], ".php");
-// กำหนดค่าเริ่มต้นของ job_status เป็น 1
+
+// กำหนดค่าเริ่มต้นของ job_status เป็น 2 (รอการยืนยัน)
 $status_filter = isset($_GET['status']) ? $_GET['status'] : 2;
 
-// ดึงข้อมูลทั้งหมดจากตาราง jobs
+// ดึงข้อมูลจากฐานข้อมูล
 $sql = "SELECT j.job_id, t.type_name, cg.giver_name AS caregiver, cr.profile_name AS carereceiver, j.job_status 
         FROM job j
         INNER JOIN job_type t ON j.type_id = t.type_id 
@@ -86,8 +89,7 @@ $jobs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         case 2: echo "รอการยืนยัน"; break;
                         case 3: echo "กำลังดำเนินการ"; break;
                         case 5: echo "เสร็จสิ้น"; break;
-                        case 10: echo "เสร็จสิ้น"; break;
-
+                        case 10: echo "ถูกยกเลิก"; break;
                     }
                     ?>
                 </td>
@@ -95,7 +97,9 @@ $jobs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <form action="update_job.php" method="POST" class="d-inline">
                         <input type="hidden" name="job_id" value="<?php echo $job['job_id']; ?>">
                         <button type="submit" name="action" value="cancel" class="btn btn-danger btn-sm">Cancel</button>
-                        <button type="submit" name="action" value="confirm" class="btn btn-success btn-sm">Confirm</button>
+                        <?php if ($job['job_status'] == 2): ?>
+                            <button type="submit" name="action" value="confirm" class="btn btn-success btn-sm">Confirm</button>
+                        <?php endif; ?>
                     </form>
                 </td>
             </tr>

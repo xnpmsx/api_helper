@@ -13,11 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // กำหนดค่า job_status ตาม action ที่ได้รับ
     switch ($action) {
         case 'cancel':
-            $new_status = 0;
+            $new_status = 1;
             $sql = "UPDATE job SET job_status = ?, giver_id = 0 WHERE job_id = ?"; // รอผู้ให้บริการยืนยัน
             break;
         case 'confirm':
-            $new_status = 2;
+            $new_status = 3;
             $sql = "UPDATE job SET job_status = ? WHERE job_id = ?"; // กำลังดำเนินการ
             break;
         default:

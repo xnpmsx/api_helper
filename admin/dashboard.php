@@ -1,25 +1,25 @@
 <?php
-// เริ่ม session
 session_start();
-// ตรวจสอบว่ามีการล็อกอินหรือไม่
 if (!isset($_SESSION['admin_id'])) {
-    header("Location: login.php"); // ถ้าไม่ได้ล็อกอินให้ไปที่หน้า login
+    header("Location: login.php");
     exit();
 }
+
 include('connect.php');
+include('sidebar.php');
 
-
-include('sidebar.php');  
-
-$currentPage = basename($_SERVER['PHP_SELF'], ".php");
-
-// ใช้ Prepared Statement เพื่อป้องกัน SQL Injection
 $sql = "SELECT giver_id, giver_name, u.email FROM giver_profile gp
         INNER JOIN user u ON u.user_id = gp.user_id 
         WHERE giver_status = 0";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $caregivers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// job type สำหรับ modal
+$sql2 = "SELECT type_id, type_name FROM job_type";
+$stmt2 = $pdo->prepare($sql2);
+$stmt2->execute();
+$jobTypes = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
 // สร้าง CSRF Token
 if (!isset($_SESSION['csrf_token'])) {
@@ -31,47 +31,81 @@ if (!isset($_SESSION['csrf_token'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
 
-<!-- Sidebar -->
 <?php include('sidebar.php'); ?>
 
-<!-- Main Content -->
-<div class="main-content">
+<div class="main-content" style="margin-left: 270px; padding: 20px;">
     <h2>Verify Care Giver</h2>
     <hr>
-    
+
     <div class="list-group">
-        <?php
-        foreach ($caregivers as $caregiver) {
-            echo '
+        <?php foreach ($caregivers as $caregiver): ?>
             <div class="d-flex justify-content-between align-items-center border-bottom py-2">
                 <div>
-                    <strong>' . htmlspecialchars($caregiver['giver_name'], ENT_QUOTES, 'UTF-8') . '</strong><br>
-                    <small class="text-muted">' . htmlspecialchars($caregiver['email'], ENT_QUOTES, 'UTF-8') . '</small>
+                    <strong><?= htmlspecialchars($caregiver['giver_name']) ?></strong><br>
+                    <small class="text-muted"><?= htmlspecialchars($caregiver['email']) ?></small>
                 </div>
                 <div>
-                    <a href="showprofile.php?giver_id=' . urlencode($caregiver['giver_id']) . '" class="btn btn-info btn-sm">Show Profile</a>
+                    <a href="showprofile.php?giver_id=<?= urlencode($caregiver['giver_id']) ?>" class="btn btn-info btn-sm">Show Profile</a>
+
+                    <button 
+                        class="btn btn-success btn-sm"
+                        data-bs-toggle="modal" 
+                        data-bs-target="#acceptModal" 
+                        onclick="setGiverId(<?= $caregiver['giver_id'] ?>)">
+                        ✔ Accept
+                    </button>
 
                     <form action="update_status.php" method="POST" class="d-inline">
-                        <input type="hidden" name="giver_id" value="' . htmlspecialchars($caregiver['giver_id'], ENT_QUOTES, 'UTF-8') . '">
-                        <input type="hidden" name="csrf_token" value="' . $_SESSION['csrf_token'] . '">
-                        <button type="submit" name="action" value="accept" class="btn btn-success btn-sm">✔ Accept</button>
+                        <input type="hidden" name="giver_id" value="<?= $caregiver['giver_id'] ?>">
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                         <button type="submit" name="action" value="reject" class="btn btn-danger btn-sm">✖ Reject</button>
                     </form>
                 </div>
-            </div>';
-        }
-        ?>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="acceptModal" tabindex="-1" aria-labelledby="acceptModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form method="POST" action="update_status.php">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">เลือกประเภทงาน</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" name="giver_id" id="modalGiverId">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+
+            <?php foreach ($jobTypes as $type): ?>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="type_ids[]" value="<?= $type['type_id'] ?>" id="type<?= $type['type_id'] ?>">
+                    <label class="form-check-label" for="type<?= $type['type_id'] ?>">
+                        <?= htmlspecialchars($type['type_name']) ?>
+                    </label>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" name="action" value="accept" class="btn btn-primary">ยืนยัน</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+function setGiverId(id) {
+    document.getElementById('modalGiverId').value = id;
+}
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
