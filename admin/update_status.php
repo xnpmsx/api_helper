@@ -37,6 +37,17 @@ if (isset($_POST['giver_id']) && isset($_POST['action'])) {
             }
         }
 
+        // เพิ่มการบันทึก addon_id ลงใน giver_addon
+        if ($action == 'accept' && isset($_POST['addons']) && is_array($_POST['addons'])) {
+            foreach ($_POST['addons'] as $addon_id) {
+                $addonSql = "INSERT INTO giver_addon (giver_id, addon_id) VALUES (:giver_id, :addon_id)";
+                $addonStmt = $pdo->prepare($addonSql);
+                $addonStmt->bindParam(':giver_id', $giver_id, PDO::PARAM_INT);
+                $addonStmt->bindParam(':addon_id', $addon_id, PDO::PARAM_INT);
+                $addonStmt->execute();
+            }
+        }
+
         header("Location: dashboard.php");
         exit();
     } else {

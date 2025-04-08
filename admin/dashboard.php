@@ -8,6 +8,7 @@ if (!isset($_SESSION['admin_id'])) {
 include('connect.php');
 include('sidebar.php');
 
+// ดึง caregiver ที่ยังไม่ผ่านการอนุมัติ
 $sql = "SELECT giver_id, giver_name, u.email FROM giver_profile gp
         INNER JOIN user u ON u.user_id = gp.user_id 
         WHERE giver_status = 0";
@@ -15,11 +16,23 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $caregivers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// job type สำหรับ modal
+// ดึง job type
 $sql2 = "SELECT type_id, type_name FROM job_type";
 $stmt2 = $pdo->prepare($sql2);
 $stmt2->execute();
 $jobTypes = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+
+// ดึง addon และจัดกลุ่มตาม type_id
+$sql3 = "SELECT addon_id, addon_name, type_id FROM addon";
+$stmt3 = $pdo->prepare($sql3);
+$stmt3->execute();
+$addons = $stmt3->fetchAll(PDO::FETCH_ASSOC);
+
+// จัดกลุ่ม addon ตาม type_id
+$addonMap = [];
+foreach ($addons as $addon) {
+    $addonMap[$addon['type_id']][] = $addon;
+}
 
 // สร้าง CSRF Token
 if (!isset($_SESSION['csrf_token'])) {
@@ -87,10 +100,23 @@ if (!isset($_SESSION['csrf_token'])) {
             <?php foreach ($jobTypes as $type): ?>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="type_ids[]" value="<?= $type['type_id'] ?>" id="type<?= $type['type_id'] ?>">
-                    <label class="form-check-label" for="type<?= $type['type_id'] ?>">
+                    <label class="form-check-label fw-bold" for="type<?= $type['type_id'] ?>">
                         <?= htmlspecialchars($type['type_name']) ?>
                     </label>
                 </div>
+
+                <?php if (isset($addonMap[$type['type_id']])): ?>
+                    <div class="ms-4 mb-2">
+                        <?php foreach ($addonMap[$type['type_id']] as $addon): ?>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="addons[]" value="<?= $addon['addon_id'] ?>" id="addon<?= $addon['addon_id'] ?>">
+                                <label class="form-check-label text-muted" for="addon<?= $addon['addon_id'] ?>">
+                                    <?= htmlspecialchars($addon['addon_name']) ?>
+                                </label>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
         <div class="modal-footer">

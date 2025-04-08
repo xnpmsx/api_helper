@@ -9,7 +9,7 @@ if (!isset($data["job_id"]) || !isset($data["cancel_detail"])) {
     echo json_encode(["status" => "error", "message" => "ข้อมูลไม่ครบถ้วน"]);
     exit();
 }
-
+//testy
 $job_id = $data["job_id"];
 $cancel_detail = $data["cancel_detail"];
 
