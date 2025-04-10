@@ -64,9 +64,11 @@ if (isset($_GET['giver_id'])) {
     <p class="card-text"><strong>Phone:</strong> <?php echo htmlspecialchars($caregiver['phone']); ?></p>
     <p class="card-text"><strong>Birthdate:</strong> <?php echo htmlspecialchars($caregiver['giver_bd']); ?></p>
     <p class="card-text"><strong>Specialities:</strong> <?php echo htmlspecialchars($caregiver['Specialities']); ?></p>
-    <p class="card-text"><strong>Item 1:</strong> <?php echo htmlspecialchars($caregiver['item1']); ?></p>
-    <p class="card-text"><strong>Item 2:</strong> <?php echo htmlspecialchars($caregiver['item2']); ?></p>
-    <p class="card-text"><strong>Item 3:</strong> <?php echo htmlspecialchars($caregiver['item3']); ?></p>
+    <p class="card-text"><strong>เล่าประสบการ์ณเกี่ยวกับการดูแลของคุณ:</strong> <?php echo htmlspecialchars($caregiver['item1']); ?></p>
+    <p class="card-text"><strong>ความท้าทายในการดูแลที่เคยพบ?:</strong> <?php echo htmlspecialchars($caregiver['item2']); ?></p>
+    <p class="card-text"><strong>คุณจะจัดการกับผู้ใช้บริการที่มีพฤติกรรมไม่เหมาะสมอย่างไร?:</strong> <?php echo htmlspecialchars($caregiver['item3']); ?></p>
+    <p class="card-text"><strong>คุณเคยทำงานภายใต้ความกดดันหรือไม่??:</strong> <?php echo htmlspecialchars($caregiver['item4']); ?></p>
+    <p class="card-text"><strong>คุณลักษณะสำคัญที่ผู้ช่วยดูแลควรมี??:</strong> <?php echo htmlspecialchars($caregiver['item5']); ?></p>
 
     <!-- Caregiver Images -->
     <p class="card-text"><strong>Identity Image:</strong> 
@@ -75,6 +77,7 @@ if (isset($_GET['giver_id'])) {
 
     <p class="card-text"><strong>Certificate:</strong> 
         <img src="<?php echo htmlspecialchars($server . '/' . $caregiver['certificate']); ?>" alt="Certificate" class="img-fluid" style="max-width: 200px;">
+        
     </p>
 
     <p class="card-text"><strong>Criminal Record Image:</strong> 

@@ -23,13 +23,15 @@ include 'connect.php';  // Include your database connection file
 
 try {
     // Prepare the SQL query
-    $stmt = $pdo->prepare("UPDATE giver_verify SET item1 = :q1, item2 = :q2, item3 = :q3 WHERE giver_id = :giver_id");
+    $stmt = $pdo->prepare("UPDATE giver_verify SET item1 = :q1, item2 = :q2, item3 = :q3, item4 = :q4, item5 = :q5 WHERE giver_id = :giver_id");
 
     // Bind parameters
     $stmt->bindParam(':giver_id', $data["giver_id"]);
     $stmt->bindParam(':q1', $data["q1"]);
     $stmt->bindParam(':q2', $data["q2"]);
     $stmt->bindParam(':q3', $data["q3"]);
+    $stmt->bindParam(':q4', $data["q4"]);
+    $stmt->bindParam(':q5', $data["q5"]);
 
     // Execute the statement
     if ($stmt->execute()) {
