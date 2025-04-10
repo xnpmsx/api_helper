@@ -10,7 +10,7 @@ if (isset($_GET['giver_id'])) {
 
     // Get details from the giver_profile table using the provided giver_id
     $sql = "SELECT u.email,u.phone,gp.giver_name, gp.giver_bd, gp.Specialities, gp.giver_img, 
-                   gv.item1, gv.item2, gv.item3, gv.id_img, gv.certificate, gv.criminal_record
+                   gv.item1, gv.item2, gv.item3, gv.item4, gv.item5, gv.id_img, gv.certificate, gv.criminal_record
             FROM giver_profile gp
             INNER JOIN giver_verify gv ON gv.giver_id = gp.giver_id
             INNER JOIN user u ON u.user_id = gp.user_id
