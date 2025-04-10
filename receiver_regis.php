@@ -23,8 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Bind parameters
             $stmt->bindParam(':phone', $data['phone']);
-            $stmt->bindParam(':password', $data['password']);
-            // $stmt->bindParam(':password', $hashedPassword);
+            $stmt->bindParam(':password', $hashedPassword);
             $stmt->bindParam(':email', $data['email']);
 
             // Execute query

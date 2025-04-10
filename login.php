@@ -11,14 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($data['username']) && !empty($data['password'])) {
         try {
-            // Query to check username and password
-            $stmt = $pdo->prepare("SELECT user_id, user_type FROM user WHERE phone = :username AND password = :password");
+            // Query to check username and retrieve the hashed password
+            $stmt = $pdo->prepare("SELECT user_id, user_type, password FROM user WHERE phone = :username");
             $stmt->bindParam(':username', $data['username']);
-            $stmt->bindParam(':password', $data['password']);
             $stmt->execute();
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($user) {
+            if ($user && password_verify($data['password'], $user['password'])) {
                 // Base response
                 $response = [
                     "status" => "success",
