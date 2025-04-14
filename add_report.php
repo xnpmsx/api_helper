@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
 
     // Check if all required fields are present
-    if (!empty($data['job_id']) && !empty($data['receiver_id']) && !empty($data['report_topic']) && !empty($data['report_detail']) && isset($data['report_img'])) {
+    if (!empty($data['job_id']) && !empty($data['report_topic']) && !empty($data['report_detail']) && isset($data['report_img'])) {
         try {
             // Start transaction
             $pdo->beginTransaction();
